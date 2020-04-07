@@ -3,10 +3,12 @@ import Footer from './Footer';
 import AddTodo from '../containers/AddTodo';
 import VisibleTodoList from '../containers/VisibleTodoList';
 
-const App = () => (
+// When we wrote: <Route path="/:filter?" component={App} />,
+// it made available inside App a params property.
+const App = ({ match: { params } }) => (
   <div>
     <AddTodo />
-    <VisibleTodoList />
+    <VisibleTodoList filter={params.filter || 'SHOW_ALL'} />
     <Footer />
   </div>
 );

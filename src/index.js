@@ -1,18 +1,9 @@
-import { createStore } from 'redux';
 import React from 'react';
 import { render } from 'react-dom';
+import { createStore } from 'redux';
 import reducers from './redux/reducers';
-import { Provider } from 'react-redux';
-import App from './components/App';
+import Root from './components/Root';
 
-// You may optionally specify the initial state as the second argument to createStore().
-// This is useful for hydrating the state of the client to match the
-// state of a Redux application running on the server.
-const store = createStore(reducers); //, window.STATE_FROM_SERVER);
+const store = createStore(reducers);
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+render(<Root store={store} />, document.getElementById('root'));
